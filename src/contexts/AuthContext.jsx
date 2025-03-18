@@ -7,21 +7,14 @@ export const AuthProvider = ({ children }) => {
     return localStorage.getItem('isAuthenticated') === 'true';
   });
 
-  useEffect(() => {
-    localStorage.setItem('isAuthenticated', isAuthenticated.toString());
-  }, [isAuthenticated]);
-
-//   const login = async (email, password) => {
-//     if (email === 'admin@example.com' && password === 'admin123') {
-//       setIsAuthenticated(true);
-//       return true;
-//     }
-//     return false;
-//   };
+  // useEffect(() => {
+  //   localStorage.setItem('isAuthenticated', isAuthenticated.toString());
+  // }, [isAuthenticated]);
 
   const logout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('token');
   };
 
   return (
