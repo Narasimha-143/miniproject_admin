@@ -17,34 +17,8 @@ const QuestionPapers = () => {
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [rejectedPapers, setRejectedPapers] = useState([]);
-  // const fetchPapers = async () => {
-  //   try {
-  //     const response = await fetch('http://localhost:9000/pendingpapers', {
-  //       method: 'GET',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Authorization': `Bearer ${token}` // Add token to headers
-
-  //       },
-
-  //     });
-
-  //     if (!response.ok) {
-  //       throw new Error('Failed to fetch papers');
-  //     }
-
-  //     const data = await response.json();
-  //     console.log('Fetched Papers:', data);
-  //     setPaper(data.papers);
-
-  //   } catch (error) {
-  //     console.error('Error fetching papers:', error.message);
-  //   }
-  // };
   const fetchPapers = async (page=page) => {
-     // if (loading || (totalPages !== null && page >= totalPages)) return; // Stop if loading or all pages are fetched
- 
-      setLoading(true);
+       setLoading(true);
       try {
         const response = await fetch(`http://localhost:9000/pendingpapers?page=${page}&size=10`,{ 
         method: 'GET',
@@ -103,20 +77,6 @@ const QuestionPapers = () => {
       console.error('Error approving paper:', error.message);
     }
   };
-//   const handleReject = async (paperId) => {
-//     console.log("Handle reject function, Paper ID:", paperId);
-//     const msg = window.confirm("Do you want to reject the question paper?");
-    
-//     if (msg) {  
-//         setPaper((prevPapers) => 
-//             prevPapers.map(paper => 
-//                 paper.id == paperId ? { ...paper, status: "rejected" } : paper
-//             )
-//         );
-//         fetchPapers()
-//     }
-// };
-
   const handleReject = async (id) => {
     console.log("Handle reject function Paper, ID:", id);
     const msg=confirm("do you want to reject question paper");

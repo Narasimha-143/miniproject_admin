@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   return (
     <Layout>
-      <div className="p-6">
+      {/* <div className="p-6">
         <h1 className="text-2xl font-bold mb-6">Dashboard Overview</h1>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -59,7 +59,8 @@ const Dashboard = () => {
             </PieChart>
           </div>
         </div>
-      </div>
+      </div> */}
+      <div>Dashboard here...</div>
     </Layout>
   );
 };
