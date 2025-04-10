@@ -27,7 +27,7 @@ const AppContent = () => {
       }
 
       try {
-        const response = await fetch(`http://localhost:9000/auth/verify_admin`, {
+        const response = await fetch(`http://localhost:9002/auth/verify_admin`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
