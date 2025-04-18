@@ -47,7 +47,7 @@ const QuestionPapers = () => {
       }
       setLoading(false);
     };
-  const handleApprove = async (id) => {
+  const handleApprove = async (id,nonrgukt=false) => {
     console.log("Handle approve function, ID:", id);
 
     try {
@@ -56,7 +56,7 @@ const QuestionPapers = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ id, token }),
+        body: JSON.stringify({ id, token ,nonrgukt}),
       });
 
       const data = await response.json();
@@ -300,14 +300,14 @@ const QuestionPapers = () => {
                               <button
                                 className="text-white bg-green-500 p-2 rounded-lg hover:bg-green-600 transition"
                                 title="Approve"
-                                onClick={() => { handleApprove(paper.id) }}
+                                onClick={() => { handleApprove(paper.id,paper.nonrgukt) }}
                               >
                                 <Check className="w-4 h-4" />
                               </button>
                               <button
                                 className="text-white bg-red-500 p-2 rounded-lg hover:bg-red-600 transition"
                                 title="Reject"
-                                onClick={() => { handleReject(paper.id) }}
+                                onClick={() => { handleReject(paper.id,paper.nonrgukt) }}
                               >
                                 <X className="w-4 h-4" />
                               </button>
